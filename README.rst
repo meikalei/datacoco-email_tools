@@ -19,7 +19,7 @@ datacoco-email_tools requires Python 3.6+
 
     python3 -m venv <virtual env name>
     source <virtual env name>/bin/activate
-    pip install datacoco_email_tools
+    pip install datacoco-email-tools
 
 Quickstart
 ----------
@@ -75,7 +75,7 @@ Testing
 
     pip install -r requirements-dev.txt
 
-To run the testing suite, simply run the command: ``tox``
+To run the testing suite, simply run the command: ``tox`` or ``python -m unittest discover tests``
 
 Contributing
 ------------
