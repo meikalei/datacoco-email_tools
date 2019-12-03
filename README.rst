@@ -4,6 +4,9 @@ datacoco-email_tools
 .. image:: https://api.codacy.com/project/badge/Grade/8367602b061d48af9e396cda3231cf59
     :target: https://www.codacy.com/manual/meikalei/datacoco-email_tools?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=equinoxfitness/datacoco-email_tools&amp;utm_campaign=Badge_Grade
 
+.. image:: https://api.codacy.com/project/badge/Coverage/8367602b061d48af9e396cda3231cf59
+    :target: https://www.codacy.com/manual/meikalei/datacoco-email_tools?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=equinoxfitness/datacoco-email_tools&amp;utm_campaign=Badge_Coverage
+
 .. image:: https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg
     :target: https://github.com/equinoxfitness/datacoco-email_tools/blob/master/CODE_OF_CONDUCT.rst
 
