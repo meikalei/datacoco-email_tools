@@ -25,26 +25,25 @@ pipeline{
                 echo "coverage"
            
                 sh "pip install -r requirements-dev.txt"
-                // sh "black --check datacoco_db tests"
-                // sh "pip install coverage codacy-coverage"
-                // sh "coverage run -m unittest tests/test_secrets.py"
-                // sh "coverage xml -i"
-                // sh "python-codacy-coverage -r coverage.xml"
+                sh "black --check datacoco_email_tools tests"
+                sh "pip install coverage codacy-coverage"
+                sh "coverage run -m unittest tests/test_email_tools.py"
+                sh "coverage xml -i"
+                sh "python-codacy-coverage -r coverage.xml"
             }
             post {
                 always {
-                    echo "plugin"
-                    // step([$class: 'CoberturaPublisher',
-                    //                autoUpdateHealth: false,
-                    //                autoUpdateStability: false,
-                    //                coberturaReportFile: 'coverage.xml',
-                    //                failNoReports: false,
-                    //                failUnhealthy: false,
-                    //                failUnstable: false,
-                    //                maxNumberOfBuilds: 10,
-                    //                onlyStable: false,
-                    //                sourceEncoding: 'ASCII',
-                    //                zoomCoverageChart: false])
+                    step([$class: 'CoberturaPublisher',
+                                   autoUpdateHealth: false,
+                                   autoUpdateStability: false,
+                                   coberturaReportFile: 'coverage.xml',
+                                   failNoReports: false,
+                                   failUnhealthy: false,
+                                   failUnstable: false,
+                                   maxNumberOfBuilds: 10,
+                                   onlyStable: false,
+                                   sourceEncoding: 'ASCII',
+                                   zoomCoverageChart: false])
                 }
             }       
         }
@@ -60,7 +59,7 @@ pipeline{
                     sh "pip install twine"
                     sh "rm -rf dist"
                     sh "python setup.py sdist"
-                    // sh "twine upload --repository-url https://test.pypi.org/legacy/ --skip-existing dist/* -u ${USERNAME} -p ${PASSWORD}"
+                    sh "twine upload --repository-url https://test.pypi.org/legacy/ --skip-existing dist/* -u ${USERNAME} -p ${PASSWORD}"
                     // sh "twine upload --skip-existing dist/* -u ${USERNAME} -p ${PASSWORD}"
                 }
             }
