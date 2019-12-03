@@ -17,8 +17,8 @@ datacoco-email_tools requires Python 3.6+
 
 ::
 
-    python3 -m venv venv
-    source venv/bin/activate
+    python3 -m venv <virtual env name>
+    source <virtual env name>/bin/activate
     pip install datacoco_email_tools
 
 Quickstart
@@ -65,7 +65,7 @@ It is recommended to use the steps below to set up a virtual environment for dev
 ::
 
     python3 -m venv <virtual env name>
-    source venv/bin/activate
+    source <virtual env name>/bin/activate
     pip install -r requirements.txt
 
 Testing
