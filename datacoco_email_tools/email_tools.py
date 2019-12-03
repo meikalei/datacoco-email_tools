@@ -15,8 +15,8 @@ class Email:
 
     def __init__(
         self,
-        recipients,
-        subject,
+        recipients=None,
+        subject=None,
         cc_recipients=None,
         bcc_recipients=None,
         aws_access_key=None,
@@ -205,11 +205,15 @@ class Email:
             subject=subject,
             cc_recipients=cc_recipients,
             bcc_recipients=bcc_recipients,
+            aws_access_key=aws_access_key,
+            aws_secret_key=aws_secret_key,
+            aws_sender=aws_sender,
+            aws_region=aws_region,
         )
         email.create_attachment(
             body_msg, filename, file_string, from_addr, filepath
         )
-        email.send_attachment(from_addr)
+        return email.send_attachment(from_addr)
 
     @staticmethod
     def send_mail(
@@ -236,9 +240,16 @@ class Email:
         :param html_msg:
         :return:
         """
-        email = Email(recipients=to_addr, subject=subject)
+        email = Email(
+            recipients=to_addr,
+            subject=subject,
+            aws_access_key=aws_access_key,
+            aws_secret_key=aws_secret_key,
+            aws_sender=aws_sender,
+            aws_region=aws_region,
+        )
         if html_msg:
             email.html(html_msg)
         elif text_msg:
             email.text(text_msg)
-        email.send(from_addr)
+        return email.send(from_addr)
