@@ -1,13 +1,20 @@
+import os
+import re
 from setuptools import setup, find_packages
 
-from datacoco_email_tools import VERSION
-
 requires = ["boto3==1.10.28"]
+
+
+def get_version():
+    version_file = open(os.path.join("datacoco_email_tools", "__version__.py"))
+    version_contents = version_file.read()
+    return re.search('__version__ = "(.*?)"', version_contents).group(1)
+
 
 setup(
     name="datacoco-email_tools",
     packages=find_packages(exclude=["tests*"]),
-    version=VERSION,
+    version=get_version(),
     license="MIT",
     description="AWS Simple Email Service wrapper",
     long_description=open("README.rst").read(),
